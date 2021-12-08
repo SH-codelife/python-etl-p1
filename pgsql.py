@@ -3,15 +3,15 @@ from config import pgsql_config
 
 def query(query, values=None):
     # Connect to your postgres DB
-    cursor = connect()
+    cursor = connect()  #calls the def connect() function
 
     # Execute a query
     if (values):
         cursor.execute(query, values)
     else:
         cursor.execute(query)
-        # return query results
-        return cursor.fetchall()
+        # return query results, MUST uncomment  to return a value/select etc.
+        #return cursor.fetchall()
 
 def connect():
     connection = psycopg2.connect(f"""
